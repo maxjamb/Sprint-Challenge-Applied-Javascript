@@ -11,22 +11,7 @@
 // const axios = require('axios');
 
 axios.get('https://lambda-times-backend.herokuapp.com/topics')
-  .then(response => {
-    debugger
-    console.log(response);
-    const { data } = response; 
-
-    componentGenerator(data);
-
-  })
-  .catch(error => {
-    debugger
-    console.log(error);
-  });
-
-const componentGenerator = function(data) {
-  console.log(data);
-    .then(response => { function createTab(){
+    .then(resp => { function createTab(){
 
         const divTab = document.createElement(divTab)
         divTab.setAttribute('class', 'tab')
@@ -62,6 +47,18 @@ const componentGenerator = function(data) {
 
     console.log(resp.data)
 })
+.then(response => {
+    debugger
+    console.log(response);
+    const { data } = response; 
+
+    componentGenerator(data);
+
+  })
+  .catch(error => {
+    debugger
+    console.log(error);
+  });
 
 
 //"javascript", "bootstrap", "technology", "jquery", "node.js"
