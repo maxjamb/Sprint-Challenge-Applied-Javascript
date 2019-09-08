@@ -11,7 +11,22 @@
 // const axios = require('axios');
 
 axios.get('https://lambda-times-backend.herokuapp.com/topics')
-    .then(resp => { function createTab(){
+  .then(response => {
+    debugger
+    console.log(response);
+    const { data } = response; 
+
+    componentGenerator(data);
+
+  })
+  .catch(error => {
+    debugger
+    console.log(error);
+  });
+
+const componentGenerator = function(data) {
+  console.log(data);
+    .then(response => { function createTab(){
 
         const divTab = document.createElement(divTab)
         divTab.setAttribute('class', 'tab')
