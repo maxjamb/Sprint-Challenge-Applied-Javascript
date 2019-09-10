@@ -30,30 +30,40 @@ Edit this document to include your answers after each question. Make sure to lea
 
 1. What is the DOM?
 
+The document object model is a programming interface for HTML and XML documents. It represents the document as nodes and obects so that programs can change the document structure, style and content.
+
 2. What is an event?
+
+Events are actions or occurences that happen in the system you are programming
 
 3. What is an event listener?
 
+An event listener is a procedure or function that waits for an event to occur,. such as keydown or mouseclicked, and is prgrammed to react to an input or signal by calling the event's handler.
+
 4. Why would we convert a NodeList into an Array?
+
+if we wanted to use methods like .map or .foreach or we wanted to use them as DOM elements.
 
 5. What is a component?
 
+Components are a reusuable pieces of code that allow you to create reusable custom elements. Made up of HTML, CSS, or JavaScript and brought together for reuse in a website or application.
+
 ### Git Set up
 
-* [ ] Fork the project into your GitHub user account
-* [ ] Clone the forked project into a directory on your machine
-* [ ] Create a pull request before you start working on the project requirements.  You will continuously push your updates throughout the project.
-* [ ] You are now ready to build this project with your preferred IDE
+* [X] Fork the project into your GitHub user account
+* [X] Clone the forked project into a directory on your machine
+* [x] Create a pull request before you start working on the project requirements.  You will continuously push your updates throughout the project.
+* [x] You are now ready to build this project with your preferred IDE
 
 ## Minimum Viable Product
 
 Your finished project must include all of the following requirements:
 
-* [ ] Look through the HTML code and familiarize yourself with the different sections. Some of them already exist, but some need to be filled in. DO NOT add any code to the HTML file itself.
+* [x] Look through the HTML code and familiarize yourself with the different sections. Some of them already exist, but some need to be filled in. DO NOT add any code to the HTML file itself.
 
-* [ ] Following the instructions in the `Header/index.js` file, create the Header component. 
+* [X] Following the instructions in the `Header/index.js` file, create the Header component. 
 
-* [ ] Following the instructions in the `Tabs/index.js` file, create individual Tabs components.
+* [X] Following the instructions in the `Tabs/index.js` file, create individual Tabs components.
 
 * [ ] Following the instructions in the `Cards/index.js` file, create individual Cards components.
 
