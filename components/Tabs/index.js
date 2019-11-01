@@ -9,56 +9,50 @@
 //    <div class="tab">topic here</div>
 
 // const axios = require('axios');
+const topics = document.querySelector('.topics')
+axios.get('https://lambda-times-backend.herokuapp.com/topics')  
+  .then(response => {
+    response.data.topics.forEach(topic => topics.appendChild(createTab(topic)));
 
-axios.get('https://lambda-times-backend.herokuapp.com/topics')
-    .then(resp => { function createTab(){
+    })
+      .catch(error => {
+      console.error(error);
+    });
 
-        const divTab = document.createElement(divTab)
-        divTab.setAttribute('class', 'tab')
-        divTab.textContent = 'javascript'
-        
-        const divTab2 = document.createElement(divTab2)
-        divTab2.setAttribute('class', 'tab')
-        divTab2.textContent = 'bootstrap'
-        
-        const divTab3 = document.createElement(divTab3)
-        divTab3.setAttribute('class', 'tab')
-        divTab3.textContent = 'technology'
-        
-        const divTab4 = document.createElement(divTab4)
-        divTab4.setAttribute('class', 'tab')
-        divTab4.textContent = 'jquery`'
-        
-        const divTab5 = document.createElement(divTab5)
-        divTab5.setAttribute('class', 'tab')
-        divTab5.textContent = 'node.js'
-        
-        divTab.appendChild(divTab2)
-        divTab.appendChild(divTab3)
-        divTab.appendChild(divTab4)
-        divTab.appendChild(divTab5)
-        return divTab
-    }
+  function createTab(topic){
 
-    console.log(createTab())
-    const tabs = createTab()
-    const tabs1 = document.querySelector('.topics')
-    tabs1.appendChild(createTab)
+    const tab = document.createElement('div');
+    tab.classList.add('tab');
+    tab.textContent = topic;
+    return tab;
 
-    console.log(resp.data)
-})
-.then(response => {
-    debugger
-    console.log(response);
-    const { data } = response; 
+    // const tab = document.createElement tab)
+    // tab.setAttribute('class', 'tab')
+    // tab.textContent = 'javascript'
+    
+    // const divTab2 = document.createElement(divTab2)
+    // divTab2.setAttribute('class', 'tab')
+    // divTab2.textContent = 'bootstrap'
+    
+    // const divTab3 = document.createElement(divTab3)
+    // divTab3.setAttribute('class', 'tab')
+    // divTab3.textContent = 'technology'
+    
+    // const divTab4 = document.createElement(divTab4)
+    // divTab4.setAttribute('class', 'tab')
+    // divTab4.textContent = 'jquery`'
+    
+    // const divTab5 = document.createElement(divTab5)
+    // divTab5.setAttribute('class', 'tab')
+    // divTab5.textContent = 'node.js'
+    
+    // tab.appendChild(divTab2)
+    // tab.appendChild(divTab3)
+    // tab.appendChild(divTab4)
+    // tab.appendChild(divTab5)
 
-    componentGenerator(data);
-
-  })
-  .catch(error => {
-    debugger
-    console.log(error);
-  });
+    //return tab
+}
 
 
 //"javascript", "bootstrap", "technology", "jquery", "node.js"
