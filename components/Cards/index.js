@@ -18,59 +18,42 @@
 //
 // Create a card for each of the articles and add the card to the DOM.
 //Program execution code begins here
-axios.get("https://lambda-times-backend.herokuapp.com/articles")
-.then(hSuccess)
-.catch(hError)
 
+const cardsContainer = document.querySelector('.cards-container');
+axios.get('https://lambda-times-backend.herokuapp.com/articles')
+	.then(response => {
+        const allArticles = Object.values(response.data.articles).flat();
+        allArticles.forEach(article => {
+            cardsContainer.appendChild(createCard(article));
+        });
+        console.log(response)
+        console.log(allArticles);
+        
+	})
+	.catch(error => console.error(error));
 
-function CardCreator({headline,authorPhoto,authorName}) {
-    const div = document.createElement('div');
-    div.setAttribute('class','card');
+function createCard(data) {
+	const card = document.createElement('div');
+	card.classList.add('card');
+	const headline = document.createElement('div');
+	headline.classList.add('headline');
+	headline.textContent = data.headline;
+	const author = document.createElement('div');
+	author.classList.add('author');
+	const imgContainer = document.createElement('div');
+	imgContainer.classList.add('img-container');
+	const img = document.createElement('img');
+	img.src = data.authorPhoto;
+	const authorName = document.createElement('span');
+	authorName.textContent = `By ${data.authorName}`;
 
-    const div1 = document.createElement('div');
-    div1.setAttribute('class','headline');
-    div1.textContent = headline;
+	imgContainer.appendChild(img);
+	author.appendChild(imgContainer);
+	author.appendChild(authorName);
 
-    const div2 = document.createElement('div');
-    div2.setAttribute('class','author');
+	card.appendChild(headline);
+	card.appendChild(author);
 
-
-    const div2a = document.createElement('div');
-    div2a.setAttribute('class','img-container');
-    const img = document.createElement('img');
-    img.src = authorPhoto;
-
-    div2a.appendChild(img);
-    const span = document.createElement('span');
-    span.textContent = `By ${authorName}`;
-
-    div2.append(div2a,span);
-
-    div.append(div1,div2);
-    console.log(div)
-
-    return div;
-}
-
-function hSuccess(response) {
-    const articles = response.data.articles;
-    console.log(articles)
-    let allArticles = [];
-
-    for(let key in articles) {
-        allArticles = [...allArticles,...articles[key]]
-    }
-
-    let Card;
-    const cardDiv = document.querySelector(".cards-container")
-    allArticles.forEach(article => {
-         Card = CardCreator(article);
-         cardDiv.appendChild(Card);
-    })
-
-}
-
-function hError(e) {
-    console.log(e)
-}
+	return card;
+} 
 
